@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Keel: the trust layer for autonomous AI teammates</title>
-<meta name="description" content="An always-on AI teammate any team can onboard, wrapped in the trust layer that makes an organization actually rely on it. It carries context between tasks, keeps a human in control of what matters, and proves the quality of its own work." />
+<title>Keel: an AI teammate every team can rely on</title>
+<meta name="description" content="An always-on AI teammate any team can hire in a day. It does the routine work no one has time for, remembers the context, and keeps a human in control of anything that matters, so your organization actually relies on it." />
 <meta name="theme-color" content="#08080b" />
-<meta property="og:title" content="Keel: the trust layer for autonomous AI teammates" />
+<meta property="og:title" content="Keel: an AI teammate every team can rely on" />
 <meta property="og:description" content="The hard part isn't the model. It's trust. We build the trust layer that makes an org rely on agents." />
 <meta property="og:type" content="website" />
 <style>
@@ -144,7 +144,12 @@
   .fleet-head{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 14px;gap:12px;flex-wrap:wrap}
   .fleet-title{font-weight:650;font-size:15px;display:flex;align-items:center;gap:9px}
   .fleet-title .crumb{color:var(--l-muted);font-weight:500;font-size:13px}
-  .fleet-sum{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--l-muted)}
+  .ffbar{display:flex;gap:6px;flex-wrap:wrap}
+  .ff{font-size:11.5px;font-weight:500;color:var(--l-muted);background:var(--l-bg);border:1px solid var(--l-line);
+    border-radius:999px;padding:5px 11px;cursor:pointer;transition:background .15s,color .15s}
+  .ff.on{background:var(--l-brand);border-color:var(--l-brand);color:#fff;font-weight:600}
+  .ff:not(.on):hover{color:var(--l-text);border-color:#cfcfe0}
+  .fleet-sum{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--l-muted);margin:0 2px 13px}
   .fleet-sum b{color:var(--l-text);font-weight:700}
   .fleet-sum .dotk{display:inline-flex;align-items:center;gap:5px}
   .fleet-sum .dotk i{width:7px;height:7px;border-radius:50%;display:block}
@@ -222,8 +227,18 @@
   .tag.work{background:#e4f8ee;color:#0f9d63}
   .tag.inv{background:#efeafd;color:#6d5ef6}
   .status-card .task{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
-  .status-card .meta{margin-top:10px;font-size:12px;color:var(--l-muted);display:flex;gap:16px}
+  .status-card.lead{border-color:#e0dcf6;box-shadow:0 8px 22px -18px rgba(109,94,246,.5)}
+  .status-card.lead .task{font-size:15px}
+  .status-card .meta{margin-top:12px;font-size:12px;color:var(--l-muted);display:flex;gap:16px;flex-wrap:wrap;align-items:center}
   .status-card .meta b{color:var(--l-text);font-weight:600}
+  .status-card .meta .act-link{color:var(--l-brand);font-weight:600;margin-left:auto}
+  .actcard{background:var(--l-panel);border:1px solid var(--l-line);border-radius:12px;padding:14px 15px}
+  .actcard .ah{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+  .actcard .ah .t{font-weight:650;font-size:13.5px}
+  .actcard .ah .ai{font-size:11.5px;color:var(--l-muted)}
+  .actcard .ah .ai .up{color:#0f9d63;font-weight:700}
+  .actcard .spark-wrap svg{width:100%;height:auto;display:block;overflow:visible}
+  .actcard .axis{display:flex;justify-content:space-between;font-size:10px;color:var(--l-muted);margin-top:7px;font-variant-numeric:tabular-nums}
   .sess{background:var(--l-panel);border:1px solid var(--l-line);border-radius:12px;padding:14px 15px}
   .sess .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
   .sess .hd .t{font-weight:650;font-size:13.5px}
@@ -402,11 +417,11 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="wrap hero-in">
-    <div class="badge"><span class="dot"></span> Now onboarding design partners</div>
+    <div class="badge"><span class="dot"></span> Early access · onboarding a handful of teams</div>
     <h1 class="hero-h">The hard part isn't the model. <span class="grad-text">It's trust.</span></h1>
-    <p class="hero-sub">Keel is an always-on AI teammate any team can onboard in a day, wrapped in the <b>trust layer</b> that makes an organization actually rely on it. It carries context from one task to the next, keeps a human in control of anything that matters, and proves the quality of its own work.</p>
+    <p class="hero-sub">Keel is an always-on AI teammate any team can <b>hire in a day</b>. It does the routine work no one has time for, remembers the context from one task to the next, and keeps a human in control of anything that matters, so your organization actually relies on it, not just tries it.</p>
     <div class="hero-actions">
-      <a href="#waitlist" class="btn btn-primary">Become a design partner</a>
+      <a href="#waitlist" class="btn btn-primary">Request early access</a>
       <a href="#product" class="btn btn-ghost">See the product</a>
     </div>
     <p class="hero-note"><b>Model-agnostic.</b> &nbsp;We don't build another model. We build the layer that makes agents load-bearing.</p>
@@ -425,17 +440,24 @@
       <div class="mock">
         <div class="mock-bar">
           <div class="tl"><i></i><i></i><i></i></div>
-          <div class="addr">app.keel.ai/fleet</div>
-          <div class="pill">Fleet Console</div>
+          <div class="addr">app.keel.ai/team</div>
+          <div class="pill">Everyone</div>
         </div>
         <div class="fleet">
           <div class="fleet-head">
-            <div class="fleet-title">Fleet <span class="crumb">›</span> <span class="crumb">All teammates</span></div>
-            <div class="fleet-sum">
-              <span><b>12</b> teammates</span>
-              <span class="dotk"><i style="background:var(--ok)"></i> 4 working</span>
-              <span class="dotk"><i style="background:var(--warn)"></i> 2 need you</span>
+            <div class="fleet-title">Everyone</div>
+            <div class="ffbar">
+              <span class="ff on">All teams</span>
+              <span class="ff">Engineering</span>
+              <span class="ff">Design</span>
+              <span class="ff">Data</span>
+              <span class="ff more">+8</span>
             </div>
+          </div>
+          <div class="fleet-sum">
+            <span><b>12</b> teammates</span>
+            <span class="dotk"><i style="background:var(--ok)"></i> 4 working</span>
+            <span class="dotk"><i style="background:var(--warn)"></i> 2 need you</span>
           </div>
           <div class="rmetrics" id="rmetrics"></div>
           <div class="roster" id="roster"></div>
@@ -458,7 +480,7 @@
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">The product</span>
-      <h2>One teammate per team. One console for the fleet.</h2>
+      <h2>One teammate per team. One place to see them all.</h2>
       <p>Each team shapes its own agent, one that knows how they work, plugs into the tools they already use, and takes the routine work off their plate. You get a live, legible view of everything it does, and a control surface for everything that matters.</p>
     </div>
 
@@ -476,34 +498,24 @@
       </div>
       <div class="fvis">
         <div class="mock">
-          <div class="mock-bar"><div class="tl"><i></i><i></i><i></i></div><div class="addr">app.keel.ai/agents/aria</div><div class="pill">Overview</div></div>
+          <div class="mock-bar"><div class="tl"><i></i><i></i><i></i></div><div class="addr">app.keel.ai/aria</div><div class="pill">Overview</div></div>
           <div class="adt">
-            <div class="adt-top">
-              <div class="adt-card">
-                <div class="k"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3 8-8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span> Tasks today</div>
-                <div class="v">14</div><div class="s">across 5 sessions</div>
-              </div>
-              <div class="adt-card">
-                <div class="k"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M8 7h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span> Cost today</div>
-                <div class="v">$6.09</div><div class="s">USD spent today</div>
-              </div>
-            </div>
-            <div class="status-card">
-              <div class="row1"><span class="lbl">Current task</span><span class="tag inv">Review</span></div>
+            <div class="status-card lead">
+              <div class="row1"><span class="lbl">Working now</span><span class="tag inv">Review</span></div>
               <div class="task">Reviewing an open change request, summarizing what changed and flagging risks</div>
-              <div class="meta"><span>Status <b style="color:#0f9d63">● Working</b></span><span>Last run <b>6 min ago</b></span><span style="color:var(--l-brand);font-weight:600">↗ Open activity</span></div>
+              <div class="meta"><span>Last run <b>6 min ago</b></span><span>Today <b>14 tasks</b></span><span>Cost <b>$6.09</b></span><span class="act-link">↗ Open activity</span></div>
             </div>
-            <div class="sess">
-              <div class="hd"><div class="t">Recent sessions <span style="font-weight:400;color:var(--l-muted);font-size:12px">(last 5)</span></div>
-                <div class="seg"><b class="act">Duration</b><b>Cost</b><b>Tasks</b></div></div>
-              <div class="cap">Red marks a session that needed attention. Tap to open it.</div>
-              <div class="bars">
-                <div class="b" style="height:52%"><span>12:46</span></div>
-                <div class="b" style="height:34%"><span>01:53</span></div>
-                <div class="b" style="height:96%"><span>10:04</span></div>
-                <div class="b err" style="height:44%"><span>10:31</span></div>
-                <div class="b" style="height:60%"><span>11:35</span></div>
+            <div class="actcard">
+              <div class="ah"><div class="t">Activity today</div><div class="ai"><span class="up">▲ 18%</span> vs yesterday</div></div>
+              <div class="spark-wrap">
+                <svg viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs><linearGradient id="agrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d5ef6" stop-opacity=".26"/><stop offset="1" stop-color="#6d5ef6" stop-opacity="0"/></linearGradient></defs>
+                  <path d="M6 72 L46 58 L86 64 L126 42 L166 50 L206 30 L246 36 L293 16 L293 90 L6 90 Z" fill="url(#agrad)"/>
+                  <path d="M6 72 L46 58 L86 64 L126 42 L166 50 L206 30 L246 36 L293 16" fill="none" stroke="#6d5ef6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="293" cy="16" r="4" fill="#6d5ef6" stroke="#fff" stroke-width="2"/>
+                </svg>
               </div>
+              <div class="axis"><span>9a</span><span>12p</span><span>3p</span><span>6p</span><span>now</span></div>
             </div>
           </div>
         </div>
@@ -524,7 +536,7 @@
       </div>
       <div class="fvis">
         <div class="mock">
-          <div class="mock-bar"><div class="tl"><i></i><i></i><i></i></div><div class="addr">app.keel.ai/agents/aria/controls</div><div class="pill">Controls</div></div>
+          <div class="mock-bar"><div class="tl"><i></i><i></i><i></i></div><div class="addr">app.keel.ai/aria/controls</div><div class="pill">Controls</div></div>
           <div style="padding:18px">
             <div class="ctrl">
               <span class="ci" style="background:#e4f8ee;color:#0f9d63"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v9M6.5 6.5a8 8 0 1 0 11 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
@@ -570,7 +582,7 @@
       </div>
       <div class="fvis">
         <div class="mock">
-          <div class="mock-bar"><div class="tl"><i></i><i></i><i></i></div><div class="addr">app.keel.ai/agents/aria</div><div class="pill">This week</div></div>
+          <div class="mock-bar"><div class="tl"><i></i><i></i><i></i></div><div class="addr">app.keel.ai/aria</div><div class="pill">This week</div></div>
           <div style="padding:18px">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
               <div style="font-weight:650;font-size:14px">What Aria has been up to</div>
