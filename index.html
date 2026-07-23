@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Keel — the trust layer for autonomous AI teammates</title>
-<meta name="description" content="An always-on AI teammate any team can onboard — wrapped in the trust layer that makes an organization actually rely on it. It carries context between tasks, keeps a human in control of what matters, and proves the quality of its own work." />
+<title>Keel: the trust layer for autonomous AI teammates</title>
+<meta name="description" content="An always-on AI teammate any team can onboard, wrapped in the trust layer that makes an organization actually rely on it. It carries context between tasks, keeps a human in control of what matters, and proves the quality of its own work." />
 <meta name="theme-color" content="#08080b" />
-<meta property="og:title" content="Keel — the trust layer for autonomous AI teammates" />
+<meta property="og:title" content="Keel: the trust layer for autonomous AI teammates" />
 <meta property="og:description" content="The hard part isn't the model. It's trust. We build the trust layer that makes an org rely on agents." />
 <meta property="og:type" content="website" />
 <style>
@@ -136,37 +136,44 @@
   .fl-b{bottom:26px;left:-14px}
   .mini-ic{width:30px;height:30px;border-radius:8px;background:#efeafd;color:var(--l-brand);display:grid;place-items:center;flex:0 0 30px}
   .mini-ic svg{width:16px;height:16px}
-  .fl-k{font-size:11px;color:var(--l-muted);letter-spacing:.02em}
-  .fl-v{font-weight:700;font-size:15px;letter-spacing:-.01em}
+  .fl-k{display:block;font-size:11px;color:var(--l-muted);letter-spacing:.02em}
+  .fl-v{display:block;font-weight:700;font-size:15px;letter-spacing:-.01em}
 
-  /* ============ Fleet / honeycomb mock ============ */
-  .fleet{padding:16px}
-  .fleet-head{display:flex;align-items:center;justify-content:space-between;padding:4px 6px 14px}
+  /* ============ Fleet / persona roster mock ============ */
+  .fleet{padding:16px 16px 18px}
+  .fleet-head{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 14px;gap:12px;flex-wrap:wrap}
   .fleet-title{font-weight:650;font-size:15px;display:flex;align-items:center;gap:9px}
   .fleet-title .crumb{color:var(--l-muted);font-weight:500;font-size:13px}
-  .stat-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:16px}
-  .stat{background:var(--l-panel);border:1px solid var(--l-line);border-radius:12px;padding:12px 13px}
-  .stat .k{font-size:11px;color:var(--l-muted);display:flex;align-items:center;gap:6px;margin-bottom:7px;font-weight:500}
-  .stat .k svg{width:13px;height:13px;color:var(--l-brand)}
-  .stat .v{font-size:21px;font-weight:700;letter-spacing:-.02em}
-  .comb{background:var(--l-panel);border:1px solid var(--l-line);border-radius:14px;padding:22px 14px 12px;position:relative}
-  .comb-rows{display:flex;flex-direction:column;align-items:center;gap:6px}
-  .comb-row{display:flex;gap:8px}
-  .comb-row.off{margin-left:44px}
-  .hex{width:80px;height:90px;position:relative;cursor:pointer;transition:transform .16s ease}
-  .hex:hover{transform:translateY(-3px)}
-  .hex .cell{position:absolute;inset:0;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
-    background:#eceef3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding-top:6px}
-  .hex.on .cell{background:#e4f8ee}
-  .hex.warnst .cell{background:#fdf3df}
-  .hex .av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
-  .hex .nm{font-size:11px;font-weight:650;line-height:1}
-  .hex .tm{font-size:8.5px;color:var(--l-muted);line-height:1;letter-spacing:.01em}
-  .hex .sdot{position:absolute;top:20px;right:18px;width:9px;height:9px;border-radius:50%;border:2px solid #fff;background:var(--idle);z-index:2}
-  .hex.on .sdot{background:var(--ok)}.hex.warnst .sdot{background:var(--warn)}
-  .legend{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:14px;font-size:11.5px;color:var(--l-muted)}
-  .legend span{display:inline-flex;align-items:center;gap:6px}
-  .legend i{width:8px;height:8px;border-radius:50%;display:block}
+  .fleet-sum{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--l-muted)}
+  .fleet-sum b{color:var(--l-text);font-weight:700}
+  .fleet-sum .dotk{display:inline-flex;align-items:center;gap:5px}
+  .fleet-sum .dotk i{width:7px;height:7px;border-radius:50%;display:block}
+  .rmetrics{display:flex;gap:8px;margin:0 2px 14px;flex-wrap:wrap}
+  .rchip{display:flex;align-items:baseline;gap:6px;background:var(--l-panel);border:1px solid var(--l-line);border-radius:10px;padding:8px 12px}
+  .rchip .rv-v{font-size:14px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .rchip .rv-k{font-size:11px;color:var(--l-muted)}
+  .roster{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .pcard{background:var(--l-panel);border:1px solid var(--l-line);border-radius:13px;padding:12px;display:flex;flex-direction:column;gap:9px;
+    transition:transform .16s ease,box-shadow .16s ease,border-color .16s;cursor:pointer}
+  .pcard:hover{transform:translateY(-2px);box-shadow:0 12px 26px -16px rgba(30,25,60,.5);border-color:#d6d6e6}
+  .pcard .top{display:flex;align-items:center;gap:10px;min-width:0}
+  .pcard .avatar{width:44px;height:44px;flex:0 0 44px;position:relative}
+  .pcard .avatar svg{width:44px;height:44px;border-radius:50%;display:block}
+  .pcard .avatar .sring{position:absolute;inset:-3px;border-radius:50%;border:2px solid transparent}
+  .pcard.on .avatar .sring{border-color:var(--ok)}
+  .pcard.warnst .avatar .sring{border-color:var(--warn)}
+  .pcard .avatar .spark{position:absolute;right:-3px;bottom:-3px;width:17px;height:17px;border-radius:50%;background:#fff;
+    border:1px solid var(--l-line);display:grid;place-items:center}
+  .pcard .avatar .spark svg{width:10px;height:10px;color:var(--l-brand)}
+  .pcard .who{min-width:0;flex:1}
+  .pcard .who .nm{font-size:13px;font-weight:650;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pcard .who .tm{font-size:11px;color:var(--l-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:999px;align-self:flex-start}
+  .chip i{width:6px;height:6px;border-radius:50%;display:block}
+  .chip.work{background:#e4f8ee;color:#0f9d63}.chip.work i{background:#0f9d63}
+  .chip.idle{background:#eef0f4;color:#6a6a78}.chip.idle i{background:#9aa0ac}
+  .chip.rev{background:#fdf3df;color:#b0812a}.chip.rev i{background:#e0a52e}
+  .pcard .task{font-size:11.5px;color:var(--l-muted);line-height:1.35}
 
   /* ============ Section scaffolding ============ */
   section{position:relative}
@@ -331,7 +338,7 @@
     .feature.rev .ftext{order:0}
     .steps{grid-template-columns:1fr 1fr}
     .icp{grid-template-columns:1fr}
-    .stat-row{grid-template-columns:repeat(3,1fr)}
+    .roster{grid-template-columns:repeat(3,1fr)}
   }
   @media (max-width:760px){
     .nav-links{display:none}
@@ -343,20 +350,16 @@
     .sec{padding:66px 0}
     .hero{padding:60px 0 20px}
     .row2{grid-template-columns:1fr}
-    .stat-row{grid-template-columns:repeat(2,1fr)}
+    .roster{grid-template-columns:repeat(2,1fr)}
     .fl-a{right:6px;top:-12px}.fl-b{left:4px;bottom:12px}
     .cta-card{padding:32px 22px}
     .adt-top{grid-template-columns:1fr 1fr}
-    .comb{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding-bottom:16px}
-    .comb-rows{align-items:flex-start;width:max-content;margin:0;padding:0 2px}
-    .legend{width:100%}
     .band .wrap{padding:56px 24px}
   }
   @media (max-width:480px){
     .steps{grid-template-columns:1fr}
-    .stat-row{grid-template-columns:repeat(2,1fr)}
-    .etr{grid-template-columns:1.4fr 78px 60px;}
-    .etr .jm-col{display:none}
+    .roster{grid-template-columns:repeat(2,1fr)}
+    .etr{grid-template-columns:1fr 120px}
     .hero-actions .btn{flex:1}
   }
 </style>
@@ -401,12 +404,12 @@
   <div class="wrap hero-in">
     <div class="badge"><span class="dot"></span> Now onboarding design partners</div>
     <h1 class="hero-h">The hard part isn't the model. <span class="grad-text">It's trust.</span></h1>
-    <p class="hero-sub">Keel is an always-on AI teammate any team can onboard in a day — wrapped in the <b>trust layer</b> that makes an organization actually rely on it. It carries context from one task to the next, keeps a human in control of anything that matters, and proves the quality of its own work.</p>
+    <p class="hero-sub">Keel is an always-on AI teammate any team can onboard in a day, wrapped in the <b>trust layer</b> that makes an organization actually rely on it. It carries context from one task to the next, keeps a human in control of anything that matters, and proves the quality of its own work.</p>
     <div class="hero-actions">
       <a href="#waitlist" class="btn btn-primary">Become a design partner</a>
       <a href="#product" class="btn btn-ghost">See the product</a>
     </div>
-    <p class="hero-note"><b>Model-agnostic.</b> &nbsp;We don't build another model — we build the layer that makes agents load-bearing.</p>
+    <p class="hero-note"><b>Model-agnostic.</b> &nbsp;We don't build another model. We build the layer that makes agents load-bearing.</p>
 
     <!-- HERO MOCK: fleet console -->
     <div class="hero-mock-wrap rv">
@@ -427,18 +430,15 @@
         </div>
         <div class="fleet">
           <div class="fleet-head">
-            <div class="fleet-title">Fleet <span class="crumb">›</span> <span class="crumb">All agents</span></div>
-          </div>
-          <div class="stat-row" id="statRow"></div>
-          <div class="comb">
-            <div class="comb-rows" id="comb"></div>
-            <div class="legend">
-              <span><i style="background:var(--ok)"></i> Working</span>
-              <span><i style="background:var(--idle)"></i> Idle</span>
-              <span><i style="background:var(--warn)"></i> Needs review</span>
-              <span style="color:var(--l-muted)">Scroll to zoom · click to open</span>
+            <div class="fleet-title">Fleet <span class="crumb">›</span> <span class="crumb">All teammates</span></div>
+            <div class="fleet-sum">
+              <span><b>12</b> teammates</span>
+              <span class="dotk"><i style="background:var(--ok)"></i> 4 working</span>
+              <span class="dotk"><i style="background:var(--warn)"></i> 2 need you</span>
             </div>
           </div>
+          <div class="rmetrics" id="rmetrics"></div>
+          <div class="roster" id="roster"></div>
         </div>
       </div>
     </div>
@@ -449,7 +449,7 @@
 <section class="band">
   <div class="wrap">
     <h2 class="rv">Agents don't get adopted because they're smart. They get adopted because someone decided to <span class="grad-text">trust one.</span></h2>
-    <p class="rv">Capability is commoditizing fast. The winners won't be whoever has the smartest model — they'll be whoever makes agents legible, controllable, and continuously verified. That layer, between <i>"the agent works"</i> and <i>"the org relies on it,"</i> is the whole company.</p>
+    <p class="rv">Capability is commoditizing fast. The winners won't be whoever has the smartest model. They'll be whoever makes agents legible, controllable, and continuously verified. That layer, between <i>"the agent works"</i> and <i>"the org relies on it,"</i> is the whole company.</p>
   </div>
 </section>
 
@@ -459,7 +459,7 @@
     <div class="sec-head rv">
       <span class="eyebrow">The product</span>
       <h2>One teammate per team. One console for the fleet.</h2>
-      <p>Each team shapes its own agent — one that knows how they work, plugs into the tools they already use, and takes the routine work off their plate. You get a live, legible view of everything it does, and a control surface for everything that matters.</p>
+      <p>Each team shapes its own agent, one that knows how they work, plugs into the tools they already use, and takes the routine work off their plate. You get a live, legible view of everything it does, and a control surface for everything that matters.</p>
     </div>
 
     <!-- Feature 1: Legibility (agent detail) -->
@@ -467,11 +467,11 @@
       <div class="ftext">
         <span class="eyebrow">Legibility</span>
         <h3>Every action, inspectable. Nothing happens in the dark.</h3>
-        <p>Live status on what each agent is doing right now, and why. The work is the interface — everything it does is attributable, reviewable, and yours to open at any time.</p>
+        <p>Live status on what each agent is doing right now, and why. The work is the interface: everything it does is attributable, reviewable, and yours to open at any time.</p>
         <div class="flist">
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Current task &amp; live status</b> — see exactly what it's working on, as it happens.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>A record of every run</b> — open any past session and read exactly what was done.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Cost visibility</b> per team, per day — no surprises at the end of the month.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Current task &amp; live status</b>: see exactly what it's working on, as it happens.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>A record of every run</b>: open any past session and read exactly what was done.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Cost visibility</b> per team, per day: no surprises at the end of the month.</span></div>
         </div>
       </div>
       <div class="fvis">
@@ -490,13 +490,13 @@
             </div>
             <div class="status-card">
               <div class="row1"><span class="lbl">Current task</span><span class="tag inv">Review</span></div>
-              <div class="task">Reviewing an open change request — summarizing what changed and flagging risks</div>
+              <div class="task">Reviewing an open change request, summarizing what changed and flagging risks</div>
               <div class="meta"><span>Status <b style="color:#0f9d63">● Working</b></span><span>Last run <b>6 min ago</b></span><span style="color:var(--l-brand);font-weight:600">↗ Open activity</span></div>
             </div>
             <div class="sess">
               <div class="hd"><div class="t">Recent sessions <span style="font-weight:400;color:var(--l-muted);font-size:12px">(last 5)</span></div>
                 <div class="seg"><b class="act">Duration</b><b>Cost</b><b>Tasks</b></div></div>
-              <div class="cap">Red marks a session that needed attention — tap to open it.</div>
+              <div class="cap">Red marks a session that needed attention. Tap to open it.</div>
               <div class="bars">
                 <div class="b" style="height:52%"><span>12:46</span></div>
                 <div class="b" style="height:34%"><span>01:53</span></div>
@@ -515,11 +515,11 @@
       <div class="ftext">
         <span class="eyebrow">Control</span>
         <h3>Autonomy you can switch off, gate, and bound.</h3>
-        <p>Control is what makes autonomy acceptable. Humans are in the loop by design — not as an apology. Every consequential action is reversible or approved, and every agent runs inside limits you set.</p>
+        <p>Control is what makes autonomy acceptable. Humans are in the loop by design, not as an apology. Every consequential action is reversible or approved, and every agent runs inside limits you set.</p>
         <div class="flist">
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Pause &amp; working hours</b> — switch any agent off, or restrict when it runs.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Spend limits</b> — set a cost ceiling per team, so nothing runs away.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Approval gates</b> — anything high-stakes waits for a human yes.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Pause &amp; working hours</b>: switch any agent off, or restrict when it runs.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Spend limits</b>: set a cost ceiling per team, so nothing runs away.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Approval gates</b>: anything high-stakes waits for a human yes.</span></div>
         </div>
       </div>
       <div class="fvis">
@@ -561,11 +561,11 @@
       <div class="ftext">
         <span class="eyebrow">Continuity</span>
         <h3>It gets more useful the longer your team works with it.</h3>
-        <p>Context carries from one task to the next. It remembers how your team works, the decisions you've made, and where it left off — so you're never re-explaining yourself, and every week it needs less hand-holding than the last.</p>
+        <p>Context carries from one task to the next. It remembers how your team works, the decisions you've made, and where it left off, so you're never re-explaining yourself, and every week it needs less hand-holding than the last.</p>
         <div class="flist">
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Picks up where it left off</b> — no restarting from scratch every session.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Learns your team's context</b> — conventions, ownership, and past decisions.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Compounds over time</b> — the same request gets faster and sharper.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Picks up where it left off</b>: no restarting from scratch every session.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Learns your team's context</b>: conventions, ownership, and past decisions.</span></div>
+          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Compounds over time</b>: the same request gets faster and sharper.</span></div>
         </div>
       </div>
       <div class="fvis">
@@ -587,7 +587,7 @@
               </div>
               <div style="display:flex;gap:13px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--l-line)">
                 <div style="font-size:11px;color:var(--l-brand);width:44px;flex:0 0 44px;font-weight:700;padding-top:1px">Wed</div>
-                <div style="font-size:13px"><b>Continued</b> the review it started yesterday — no need to re‑brief it.</div>
+                <div style="font-size:13px"><b>Continued</b> the review it started yesterday, no need to re‑brief it.</div>
               </div>
               <div style="display:flex;gap:13px;align-items:flex-start;padding:11px 0">
                 <div style="font-size:11px;color:var(--l-muted);width:44px;flex:0 0 44px;font-weight:600;padding-top:1px">Now</div>
@@ -609,8 +609,8 @@
   <div class="wrap">
     <div class="sec-head center rv">
       <span class="eyebrow">The difference</span>
-      <h2>Proof it ran <span class="grad-text">well</span> — not just that it ran.</h2>
-      <p>Anyone can get an agent to do something. The hard part is knowing it did it <i>well</i>. Keel independently grades every piece of work on what you actually care about — quality, efficiency, cost, and real impact — so you get proof, not vibes. You pay for work verified as good, not effort spent.</p>
+      <h2>Proof it ran <span class="grad-text">well</span>, not just that it ran.</h2>
+      <p>Anyone can get an agent to do something. The hard part is knowing it did it <i>well</i>. Keel independently grades every piece of work on what you actually care about: quality, efficiency, cost, and real impact. So you get proof, not vibes. You pay for work verified as good, not effort spent.</p>
     </div>
     <div class="rv" style="max-width:880px;margin:0 auto">
       <div class="mock">
@@ -630,7 +630,7 @@
           </div>
         </div>
       </div>
-      <p class="rv" style="text-align:center;color:var(--muted);font-size:14px;margin-top:20px">It's also how you meter value: you pay for work verified as good — not hours or effort spent.</p>
+      <p class="rv" style="text-align:center;color:var(--muted);font-size:14px;margin-top:20px">It's also how you meter value: you pay for work verified as good, not hours or effort spent.</p>
     </div>
   </div>
 </section>
@@ -641,7 +641,7 @@
     <div class="sec-head rv">
       <span class="eyebrow">How it works</span>
       <h2>Onboard a team in a day.</h2>
-      <p>Not a rollout project. A persona, its access, and a first task — then it compounds.</p>
+      <p>Not a rollout project. A persona, its access, and a first task, then it compounds.</p>
     </div>
     <div class="steps">
       <div class="step rv">
@@ -669,14 +669,14 @@
   <div class="wrap">
     <div class="sec-head center rv">
       <span class="eyebrow">Who it's for</span>
-      <h2>Teams that want to move like a startup — with the trust of an enterprise.</h2>
+      <h2>Teams that want to move like a startup, with the trust of an enterprise.</h2>
       <p>Built for well‑funded startups and unicorns adopting AI fast, and for the investors and operators betting on the agent-native org.</p>
     </div>
     <div class="icp">
       <div class="c rv">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
         <h3>Fast-moving teams</h3>
-        <p>Ship the routine work no one wants to do — reviews, research, reports, reconciliations — without adding headcount or losing control.</p>
+        <p>Ship the routine work no one wants to do (reviews, research, reports, reconciliations) without adding headcount or losing control.</p>
       </div>
       <div class="c rv">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V10M10 20V6M14 20v-8M18 20V4" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></span>
@@ -725,7 +725,7 @@
       <div class="wl-ok" id="wlOk">
         <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <h3>You're on the list.</h3>
-        <p id="wlOkMsg">Thanks — we'll be in touch soon about onboarding your team.</p>
+        <p id="wlOkMsg">Thanks! We'll be in touch soon about onboarding your team.</p>
       </div>
     </div>
   </div>
@@ -744,43 +744,89 @@
 </footer>
 
 <script>
-  /* ---------- Fleet console data (clean-room, generic) ---------- */
-  var stats = [
-    ["Tasks completed","19.5k",'<path d="M9 11l3 3 8-8" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round"/>'],
-    ["Reviews done","5.6k",'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.8" fill="none"/>'],
-    ["Drafts written","4.3k",'<path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3Z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/>'],
-    ["Issues resolved","2.4k",'<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'],
-    ["Reports run","9.3k",'<path d="M4 20h16M8 20v-6M12 20V8M16 20v-9" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round"/>'],
-    ["Hours saved","31k",'<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round"/>']
-  ];
-  var sr = document.getElementById('statRow');
-  stats.forEach(function(s){
-    var d=document.createElement('div');d.className='stat';
-    d.innerHTML='<div class="k"><svg viewBox="0 0 24 24" fill="none">'+s[2]+'</svg>'+s[0]+'</div><div class="v">'+s[1]+'</div>';
-    sr.appendChild(d);
+  /* ---------- Fleet outcome ribbon ---------- */
+  var rmet=[["19.5k","tasks done"],["5.6k","reviews"],["31k","hours saved"],["96%","verified good"]];
+  var rmEl=document.getElementById('rmetrics');
+  rmet.forEach(function(m){
+    var d=document.createElement('div');d.className='rchip';
+    d.innerHTML='<span class="rv-v">'+m[0]+'</span><span class="rv-k">'+m[1]+'</span>';
+    rmEl.appendChild(d);
   });
 
-  /* honeycomb agents — generic team personas + monogram avatars */
-  var avColors=['#6d5ef6','#3b82f6','#0ea5a4','#8b5cf6','#ec4899','#f59e0b','#10b981','#ef4444','#6366f1','#14b8a6','#f43f5e','#0891b2'];
-  var agents=[
-    ["Aria","Engineering",1],["Milo","Product",0],["Nova","Design",1],["Kai","Data",0],["Iris","Growth",1],["Ezra","Marketing",0],
-    ["Juno","Support",0],["Remy","Finance",0],["Sage","Sales",0],["Theo","People",2],["Vera","Operations",0],["Zane","Legal",0],
-    ["Luca","IT",0],["Nia","Research",0],["Odin","Docs",0],["Wren","Analytics",1],["Ada","Security",0],["Beck","Platform",0],
-    ["Cleo","Web",1],["Dax","QA",0],["Efi","Success",1],["Fox","Brand",0],["Gia","RevOps",0],["Hugo","DevEx",0]
-  ];
-  function initials(n){return n.replace(/[^A-Za-z]/g,'').slice(0,2).toUpperCase()||'AI';}
-  var rows=[6,6,6,6];var idx=0;var comb=document.getElementById('comb');
-  rows.forEach(function(count,r){
-    var rowEl=document.createElement('div');rowEl.className='comb-row'+(r%2?' off':'');
-    for(var i=0;i<count&&idx<agents.length;i++,idx++){
-      var a=agents[idx];var st=a[2];
-      var hex=document.createElement('div');
-      hex.className='hex'+(st===1?' on':st===2?' warnst':'');
-      var col=avColors[idx%avColors.length];
-      hex.innerHTML='<div class="sdot"></div><div class="cell"><div class="av" style="background:'+col+'">'+initials(a[0])+'</div><div class="nm">'+a[0]+'</div><div class="tm">'+a[1]+'</div></div>';
-      rowEl.appendChild(hex);
+  /* ---------- Original procedural persona illustrations (clean-room) ---------- */
+  var SKIN=['#f4d3b6','#e8b78e','#d49b6f','#bd7f52','#98653e','#744c30','#4f3421'];
+  var HAIR=['#2a2320','#4a3526','#6f4b2d','#a96c34','#dcb76d','#8c8c92','#b34a30'];
+  var TOP =['#6d5ef6','#3b82f6','#0ea5a4','#ec4899','#f0a92e','#10b981','#8b5cf6','#ef6a5e','#64748b','#14b8a6','#a855f7','#0891b2'];
+  var BG  =['#eef1ff','#ecfdf3','#fef2f4','#fff6ec','#eef8ff','#f4f2ff','#fdf1f7','#f1fbf4'];
+
+  /* build an SVG avatar from a persona spec; hairstyles: short,wavy,afro,curly,long,bun,hijab,bald */
+  function persona(p,i){
+    var sk=SKIN[p.s], hc=HAIR[p.hc], tp=TOP[p.t], bg=BG[p.b], cid='pcl'+i;
+    var back='',front='';
+    if(p.h==='afro'){ back='<circle cx="32" cy="25" r="17.5" fill="'+hc+'"/>'; front='<path d="M17 30 Q17 15 32 15 Q47 15 47 30 Q44 23 32 23 Q20 23 17 30 Z" fill="'+hc+'"/>'; }
+    else if(p.h==='curly'){ back='<g fill="'+hc+'"><circle cx="20" cy="24" r="6.5"/><circle cx="44" cy="24" r="6.5"/><circle cx="26" cy="18" r="6.5"/><circle cx="38" cy="18" r="6.5"/><circle cx="32" cy="16" r="6.5"/></g>'; }
+    else if(p.h==='long'){ back='<path d="M16 26 Q16 55 22 60 L23 44 Q19 38 20 30 L44 30 Q45 38 41 44 L42 60 Q48 55 48 26 Q48 15 32 15 Q16 15 16 26 Z" fill="'+hc+'"/>'; front='<path d="M17 31 Q17 16 32 16 Q47 16 47 31 Q44 23 32 23 Q20 23 17 31 Z" fill="'+hc+'"/>'; }
+    else if(p.h==='bun'){ front='<circle cx="32" cy="13" r="5.2" fill="'+hc+'"/><path d="M18 31 Q18 17 32 17 Q46 17 46 31 Q43 24 32 24 Q21 24 18 31 Z" fill="'+hc+'"/>'; }
+    else if(p.h==='wavy'){ front='<path d="M18 32 Q18 16 32 16 Q46 16 46 32 Q44 26 40 27 Q38 22 32 23 Q26 22 24 27 Q20 26 18 32 Z" fill="'+hc+'"/>'; }
+    else if(p.h==='hijab'){ /* fabric frame instead of hair */
+      var fab=tp;
+      back='<path d="M13 34 Q13 13 32 13 Q51 13 51 34 Q51 47 47 53 L47 62 L17 62 L17 53 Q13 47 13 34 Z" fill="'+fab+'"/>';
+      front='<path d="M20 27 Q20 16 32 16 Q44 16 44 27 Q40 21 32 21 Q24 21 20 27 Z" fill="'+shade(fab)+'"/>';
     }
-    comb.appendChild(rowEl);
+    else if(p.h==='bald'){ front=''; }
+    else { front='<path d="M18 31 Q18 16 32 16 Q46 16 46 31 Q43 23 32 23 Q21 23 18 31 Z" fill="'+hc+'"/>'; } /* short */
+
+    var ears=(p.h==='hijab')?'':'<circle cx="18.5" cy="33" r="2.6" fill="'+sk+'"/><circle cx="45.5" cy="33" r="2.6" fill="'+sk+'"/>';
+    var head='<rect x="28.5" y="40" width="7" height="7" rx="2.4" fill="'+sk+'"/><circle cx="32" cy="31" r="13.3" fill="'+sk+'"/>';
+    var eyes='<circle cx="27" cy="31" r="1.5" fill="#3c3230"/><circle cx="37" cy="31" r="1.5" fill="#3c3230"/>';
+    var brows=(p.h==='hijab'||p.acc==='glasses')?'':'<path d="M24.6 27.5 q2.4 -1 4.6 0" stroke="'+hc+'" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M34.8 27.5 q2.2 -1 4.6 0" stroke="'+hc+'" stroke-width="1" fill="none" stroke-linecap="round"/>';
+    var smile='<path d="M28.6 36 Q32 38.4 35.4 36" stroke="'+shade(sk)+'" stroke-width="1.3" fill="none" stroke-linecap="round"/>';
+    var facial=p.f==='beard'?'<path d="M20.5 33 Q20.5 46 32 46 Q43.5 46 43.5 33 Q43.5 41 32 41 Q20.5 41 20.5 33 Z" fill="'+hc+'"/>':
+               p.f==='stubble'?'<path d="M22 36 Q22 45 32 45 Q42 45 42 36 Q42 41 32 41 Q22 41 22 36 Z" fill="'+hc+'" opacity=".28"/>':'';
+    var glasses=p.acc==='glasses'?'<g fill="none" stroke="#3a3540" stroke-width="1.4"><rect x="22.5" y="28" width="8.5" height="6.5" rx="3"/><rect x="33" y="28" width="8.5" height="6.5" rx="3"/><path d="M31 30.5 h2"/></g>':'';
+    var neck='';
+    var shoulders=(p.h==='hijab')?'':'<path d="M9 62 Q11 46 32 46 Q53 46 55 62 Z" fill="'+tp+'"/>';
+
+    return '<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+p.n+', '+p.tm+' teammate">'
+      +'<defs><clipPath id="'+cid+'"><circle cx="32" cy="32" r="31.5"/></clipPath></defs>'
+      +'<g clip-path="url(#'+cid+')">'
+      +'<circle cx="32" cy="32" r="31.5" fill="'+bg+'"/>'
+      +back+shoulders+neck+ears+head+facial+front+eyes+brows+smile+glasses
+      +'</g></svg>';
+  }
+  /* darken a hex color a touch (for shading/smile) */
+  function shade(hex){var n=parseInt(hex.slice(1),16);var r=Math.max(0,(n>>16&255)-38),g=Math.max(0,(n>>8&255)-30),b=Math.max(0,(n&255)-30);return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);}
+
+  /* clean-room personas: diverse young adults, horizontal team functions */
+  var people=[
+    {n:'Aisha', tm:'Engineering', st:1, s:3, h:'hijab', hc:0, t:0, b:0, task:'Reviewing an open request and flagging risks'},
+    {n:'Wei',   tm:'Product',     st:0, s:1, h:'short', hc:0, t:1, b:4, acc:'glasses'},
+    {n:'Diego', tm:'Design',      st:1, s:2, h:'wavy',  hc:2, t:3, b:6, task:'Drafting this week’s team update'},
+    {n:'Priya', tm:'Data',        st:1, s:3, h:'long',  hc:0, t:2, b:1, task:'Pulling together the monthly report'},
+    {n:'Kwame', tm:'Support',     st:2, s:6, h:'afro',  hc:0, t:5, b:7, task:'Two items need a closer look'},
+    {n:'Sofia', tm:'Finance',     st:0, s:0, h:'long',  hc:4, t:7, b:3},
+    {n:'Noah',  tm:'Marketing',   st:0, s:1, h:'short', hc:5, t:10,b:5},
+    {n:'Omar',  tm:'People',      st:0, s:4, h:'short', hc:1, t:8, b:3, f:'beard'},
+    {n:'Lena',  tm:'Research',    st:1, s:0, h:'bun',   hc:3, t:9, b:0, task:'Answering questions from the team'},
+    {n:'Ravi',  tm:'Security',    st:2, s:3, h:'short', hc:0, t:6, b:5, acc:'glasses', task:'Waiting on your approval to send an update'},
+    {n:'Zara',  tm:'Success',     st:0, s:4, h:'curly', hc:0, t:3, b:6},
+    {n:'Mateo', tm:'Operations',  st:0, s:2, h:'short', hc:2, t:11,b:1, f:'stubble'}
+  ];
+  var STCLASS={0:'',1:'on',2:'warnst'}, STCHIP={0:['idle','Idle'],1:['work','Working'],2:['rev','Needs you']};
+  var sparkSVG='<svg viewBox="0 0 24 24" fill="none"><path d="M13 3 4 14h6l-1 7 9-12h-6l1-6Z" fill="currentColor"/></svg>';
+  var roster=document.getElementById('roster');
+  people.forEach(function(p,i){
+    var chip=STCHIP[p.st];
+    var card=document.createElement('div');
+    card.className='pcard '+STCLASS[p.st];
+    card.innerHTML=
+      '<div class="top">'
+        +'<div class="avatar">'+persona(p,i)+'<span class="sring"></span><span class="spark">'+sparkSVG+'</span></div>'
+        +'<div class="who"><div class="nm">'+p.n+'</div><div class="tm">'+p.tm+'</div></div>'
+      +'</div>'
+      +'<span class="chip '+chip[0]+'"><i></i>'+chip[1]+'</span>'
+      +'<div class="task">'+(p.task||'Idle since last session')+'</div>';
+    roster.appendChild(card);
   });
 
   /* ---------- Mobile menu ---------- */
@@ -809,9 +855,9 @@
     if(!name.value.trim()){name.focus();return;}
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){email.focus();email.style.borderColor='var(--err)';return;}
     if(!role.value){role.focus();return;}
-    var msg="Thanks — we'll be in touch soon about onboarding your team.";
-    if(/investor/i.test(role.value)) msg="Thanks — we'll reach out to set up a conversation.";
-    else if(/engineer/i.test(role.value)) msg="Thanks — we'll be in touch about building this together.";
+    var msg="Thanks! We'll be in touch soon about onboarding your team.";
+    if(/investor/i.test(role.value)) msg="Thanks! We'll reach out to set up a conversation.";
+    else if(/engineer/i.test(role.value)) msg="Thanks! We'll be in touch about building this together.";
     document.getElementById('wlOkMsg').textContent=msg;
     /* persist locally so a repeat visit remembers (mock only) */
     try{var q=JSON.parse(localStorage.getItem('keel_waitlist')||'[]');q.push({name:name.value,email:email.value,company:document.getElementById('company').value,role:role.value,at:new Date().toISOString()});localStorage.setItem('keel_waitlist',JSON.stringify(q));}catch(_){}
