@@ -9,6 +9,33 @@
 <meta property="og:title" content="Keel: an AI teammate every team can rely on" />
 <meta property="og:description" content="The hard part isn't the model. It's trust. We build the trust layer that makes an org rely on agents." />
 <meta property="og:type" content="website" />
+
+<!-- ============ Analytics (GA4 + Microsoft Clarity) ============
+     Fill the two IDs below to switch tracking on. Left blank = no external
+     calls, nothing loads. GA4 id looks like "G-XXXXXXXXXX"; Clarity id is the
+     short project id from clarity.microsoft.com. -->
+<script>
+(function () {
+  var GA_ID = "";        /* e.g. "G-XXXXXXXXXX" */
+  var CLARITY_ID = "";   /* e.g. "abcd1234ef" */
+  if (GA_ID) {
+    var g = document.createElement("script");
+    g.async = true; g.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date()); gtag("config", GA_ID);
+  }
+  if (CLARITY_ID) {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", CLARITY_ID);
+  }
+})();
+</script>
+
 <style>
   /* ============ Design tokens ============ */
   :root{
@@ -471,7 +498,7 @@
 <section class="band">
   <div class="wrap">
     <h2 class="rv">Agents don't get adopted because they're smart. They get adopted because someone decided to <span class="grad-text">trust one.</span></h2>
-    <p class="rv">Capability is commoditizing fast. The winners won't be whoever has the smartest model. They'll be whoever makes agents legible, controllable, and continuously verified. That layer, between <i>"the agent works"</i> and <i>"the org relies on it,"</i> is the whole company.</p>
+    <p class="rv">Capability is commoditizing fast. The winners won't be whoever has the smartest model. They'll be whoever makes agents legible, controllable, and continuously verified. That layer, between <i>"the agent works"</i> and <i>"the org relies on it,"</i> is where the durable company gets built.</p>
   </div>
 </section>
 
@@ -691,9 +718,9 @@
         <p>Ship the routine work no one wants to do (reviews, research, reports, reconciliations) without adding headcount or losing control.</p>
       </div>
       <div class="c rv">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V10M10 20V6M14 20v-8M18 20V4" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></span>
-        <h3>Design partners</h3>
-        <p>Shape the product with us. We onboard your first team, measure the impact, and build the trust surface around how you actually work.</p>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="#fff" stroke-width="1.8"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <h3>Founders &amp; operators</h3>
+        <p>You've felt the adoption pain from the inside. Be first to put a teammate to work, and help shape what "reliable" looks like for your org.</p>
       </div>
       <div class="c rv">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" stroke="#fff" stroke-width="1.8"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -711,7 +738,7 @@
       <div id="wlForm">
         <span class="eyebrow center" style="display:block;margin-bottom:14px">Early access</span>
         <h2>Put a teammate on your team.</h2>
-        <p>We're onboarding a small group of design partners now. Tell us who you are and we'll be in touch.</p>
+        <p>We're onboarding a small group of early teams right now. Tell us who you are and we'll be in touch.</p>
         <form class="wl" id="waitlistForm" novalidate>
           <div class="row2">
             <div class="fld"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Ada Lovelace" autocomplete="name" required></div>
@@ -722,7 +749,7 @@
             <div class="fld"><label for="role">I'm reaching out as a…</label>
               <div class="selwrap"><select id="role" name="role" required>
                 <option value="" disabled selected>Select one</option>
-                <option>Team adopting AI (design partner)</option>
+                <option>Team adopting AI</option>
                 <option>Founder / operator</option>
                 <option>Investor</option>
                 <option>Engineer interested in building this</option>
