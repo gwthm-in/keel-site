@@ -1,8 +1,8 @@
-# Keel — landing page
+# Skírnir — landing page
 
 Static, self-contained landing / waitlist page (single `index.html`, no build step, no dependencies).
 
-Product name **"Keel"** is a working placeholder.
+Product name: **Skírnir** (Norse — Freyr's trusted envoy who acts on his behalf).
 
 ## Run locally
 ```
