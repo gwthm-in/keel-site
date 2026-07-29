@@ -885,10 +885,10 @@
   })();
 
   /* ---------- Waitlist → FormSubmit (emails us the signup + auto-confirms the person) ----------
-     Endpoint = the address that receives signups. FormSubmit needs a ONE-TIME activation:
-     the first submission emails this address a confirm link — click it once and it's live.
-     To stop exposing the address publicly, swap this for FormSubmit's hashed alias after activation. */
-  var WL_ENDPOINT='https://formsubmit.co/ajax/gowtham95india@gmail.com';
+     Sends to hello@adeptai.co.in, which Cloudflare Email Routing forwards to our inbox — so no
+     personal address is exposed in the page. FormSubmit needs a ONE-TIME activation: the first
+     submission emails hello@adeptai.co.in a confirm link (arrives in our inbox) — click it once. */
+  var WL_ENDPOINT='https://formsubmit.co/ajax/hello@adeptai.co.in';
   var form=document.getElementById('waitlistForm');
   var wlBtn=form.querySelector('button[type="submit"]');
   var wlFine=form.querySelector('.fine');
@@ -910,7 +910,7 @@
       name:name.value, email:email.value, company:company.value, role:role.value,
       _subject:'New early-access request — '+name.value+' ('+role.value+')',
       _template:'table', _captcha:'false',
-      _autoresponse:name.value.split(' ')[0]+' — '+msg+'\n\nYou are on the early-access list; we will reach out at this address.\n\n— The team'
+      _autoresponse:name.value.split(' ')[0]+' — '+msg+'\n\nYou are on the early-access list; we will reach out at this address.\n\n— The Adept AI team'
     };
     wlBtn.disabled=true; var lbl=wlBtn.textContent; wlBtn.textContent='Sending…';
     fetch(WL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
@@ -926,7 +926,7 @@
       .catch(function(err){
         wlBtn.disabled=false; wlBtn.textContent=lbl;
         wlFine.style.color='var(--err)';
-        wlFine.textContent='Could not submit just now — please email gowtham95india@gmail.com and we will add you.';
+        wlFine.textContent='Could not submit just now — please try again in a moment.';
         console.warn('waitlist submit failed:',err);
       });
   });
