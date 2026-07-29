@@ -885,10 +885,10 @@
   })();
 
   /* ---------- Waitlist → FormSubmit (emails us the signup + auto-confirms the person) ----------
-     Sends to hello@adeptai.co.in, which Cloudflare Email Routing forwards to our inbox — so no
-     personal address is exposed in the page. FormSubmit needs a ONE-TIME activation: the first
-     submission emails hello@adeptai.co.in a confirm link (arrives in our inbox) — click it once. */
-  var WL_ENDPOINT='https://formsubmit.co/ajax/hello@adeptai.co.in';
+     Uses FormSubmit's opaque form token (aliased to hello@adeptai.co.in, which Cloudflare Email
+     Routing forwards to our Gmail) — so no email address of any kind is exposed in the page.
+     Form is activated. Submissions notify hello@adeptai.co.in and auto-confirm the signup. */
+  var WL_ENDPOINT='https://formsubmit.co/ajax/8b8b6c0705f0a23680ea74867b9f855e';
   var form=document.getElementById('waitlistForm');
   var wlBtn=form.querySelector('button[type="submit"]');
   var wlFine=form.querySelector('.fine');
