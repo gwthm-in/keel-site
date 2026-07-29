@@ -884,25 +884,51 @@
     } else { revealAll(); }
   })();
 
-  /* ---------- Waitlist (front-end mock) ---------- */
+  /* ---------- Waitlist → FormSubmit (emails us the signup + auto-confirms the person) ----------
+     Endpoint = the address that receives signups. FormSubmit needs a ONE-TIME activation:
+     the first submission emails this address a confirm link — click it once and it's live.
+     To stop exposing the address publicly, swap this for FormSubmit's hashed alias after activation. */
+  var WL_ENDPOINT='https://formsubmit.co/ajax/gowtham95india@gmail.com';
   var form=document.getElementById('waitlistForm');
+  var wlBtn=form.querySelector('button[type="submit"]');
+  var wlFine=form.querySelector('.fine');
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var email=document.getElementById('email');
     var name=document.getElementById('name');
     var role=document.getElementById('role');
+    var company=document.getElementById('company');
     if(!name.value.trim()){name.focus();return;}
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){email.focus();email.style.borderColor='var(--err)';return;}
     if(!role.value){role.focus();return;}
     var msg="Thanks! We'll be in touch soon about onboarding your team.";
     if(/investor/i.test(role.value)) msg="Thanks! We'll reach out to set up a conversation.";
     else if(/engineer/i.test(role.value)) msg="Thanks! We'll be in touch about building this together.";
-    document.getElementById('wlOkMsg').textContent=msg;
-    /* persist locally so a repeat visit remembers (mock only) */
-    try{var q=JSON.parse(localStorage.getItem('skirnir_waitlist')||'[]');q.push({name:name.value,email:email.value,company:document.getElementById('company').value,role:role.value,at:new Date().toISOString()});localStorage.setItem('skirnir_waitlist',JSON.stringify(q));}catch(_){}
-    document.getElementById('wlForm').style.display='none';
-    document.getElementById('wlOk').classList.add('show');
-    document.getElementById('wlOk').scrollIntoView({behavior:'smooth',block:'center'});
+    /* local backup so a lead is never lost even if the network hiccups */
+    try{var q=JSON.parse(localStorage.getItem('adeptai_waitlist')||'[]');q.push({name:name.value,email:email.value,company:company.value,role:role.value,at:new Date().toISOString()});localStorage.setItem('adeptai_waitlist',JSON.stringify(q));}catch(_){}
+    var payload={
+      name:name.value, email:email.value, company:company.value, role:role.value,
+      _subject:'New early-access request — '+name.value+' ('+role.value+')',
+      _template:'table', _captcha:'false',
+      _autoresponse:name.value.split(' ')[0]+' — '+msg+'\n\nYou are on the early-access list; we will reach out at this address.\n\n— The team'
+    };
+    wlBtn.disabled=true; var lbl=wlBtn.textContent; wlBtn.textContent='Sending…';
+    fetch(WL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();})
+      .then(function(res){
+        if(res && (res.success===true||res.success==='true')){
+          document.getElementById('wlOkMsg').textContent=msg;
+          document.getElementById('wlForm').style.display='none';
+          document.getElementById('wlOk').classList.add('show');
+          document.getElementById('wlOk').scrollIntoView({behavior:'smooth',block:'center'});
+        } else { throw new Error((res&&res.message)||'submit failed'); }
+      })
+      .catch(function(err){
+        wlBtn.disabled=false; wlBtn.textContent=lbl;
+        wlFine.style.color='var(--err)';
+        wlFine.textContent='Could not submit just now — please email gowtham95india@gmail.com and we will add you.';
+        console.warn('waitlist submit failed:',err);
+      });
   });
 </script>
 </body>
