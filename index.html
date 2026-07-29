@@ -653,40 +653,68 @@
       <h2>Everything it takes to make an agent <span class="grad-text">load-bearing.</span></h2>
       <p>Getting an agent to do something is easy. Handing it real, recurring work — safely, unattended, for months — takes a deep stack. This is what your team is actually hiring: routine work off people's plates, leverage without new headcount, and control you never hand over.</p>
     </div>
-    <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px 40px;margin-top:14px">
-      <div>
-        <span class="eyebrow" style="display:block;margin-bottom:16px">Always working</span>
-        <div class="flist">
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Always on</b> — works proactively around the clock, not only when asked.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Habits</b> — standing routines it runs on its own, so recurring work just happens.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Smart work management</b> — it prioritizes and sequences its own workload.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Multi-agent orchestration</b> — the right agent is brought in for each task, matched to its kind and complexity.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Skills</b> — a growing repertoire of things it knows how to do.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Clean handoffs</b> — work passes between agents, and to you, without losing context.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Standup delegate</b> — it can join calls and represent the work on your behalf.</span></div>
+
+    <style>
+      #capabilities .cap-bands{margin-top:16px;display:flex;flex-direction:column;gap:12px}
+      #capabilities .cap-band{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+      #capabilities .cap-lead{grid-column:span 2;border-radius:16px;padding:22px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;justify-content:center;min-height:148px}
+      #capabilities .cap-lead::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 120% at 100% 0%,rgba(255,255,255,.24),transparent 55%)}
+      #capabilities .cap-lead .ic{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.22);display:grid;place-items:center;position:relative;z-index:1}
+      #capabilities .cap-lead .ic svg{width:21px;height:21px;display:block}
+      #capabilities .cap-lead .bt{font-weight:750;font-size:19px;letter-spacing:-.01em;position:relative;z-index:1}
+      #capabilities .cap-lead .bd{font-size:12.8px;opacity:.92;position:relative;z-index:1;line-height:1.45}
+      #capabilities .cap-tile{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;transition:.18s}
+      #capabilities .cap-tile:hover{border-color:var(--accent);background:#15151d;transform:translateY(-2px)}
+      #capabilities .cap-tile.feat{grid-column:span 2}
+      #capabilities .cap-tile .tt{font-weight:650;font-size:14px;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+      #capabilities .cap-tile .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+      #capabilities .cap-tile .dd{font-size:12.5px;color:var(--muted);line-height:1.45}
+      @media(max-width:820px){#capabilities .cap-band{grid-template-columns:1fr 1fr}#capabilities .cap-lead{grid-column:span 2}#capabilities .cap-tile.feat{grid-column:span 2}}
+      @media(max-width:520px){#capabilities .cap-band{grid-template-columns:1fr}#capabilities .cap-lead,#capabilities .cap-tile.feat{grid-column:span 1}}
+    </style>
+
+    <div class="cap-bands rv">
+      <!-- Always working -->
+      <div class="cap-band" style="--accent:#7c6bf5">
+        <div class="cap-lead" style="background:linear-gradient(135deg,#8f7bff,#6d5ef6)">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <div><div class="bt">Always working</div><div class="bd">It shows up and does the work — proactively, in the right order, with the right agent.</div></div>
         </div>
+        <div class="cap-tile feat"><div class="tt"><span class="dot"></span>Multi-agent orchestration</div><div class="dd">The right agent is brought in for each task, matched to its kind and complexity.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Always on</div><div class="dd">Works proactively around the clock, not only when asked.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Habits</div><div class="dd">Standing routines it runs on its own.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Smart work management</div><div class="dd">Prioritizes and sequences its own workload.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Skills</div><div class="dd">A growing repertoire of things it can do.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Clean handoffs</div><div class="dd">Work passes on — to agents or you — without losing context.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Standup delegate</div><div class="dd">Joins calls and represents the work on your behalf.</div></div>
       </div>
-      <div>
-        <span class="eyebrow" style="display:block;margin-bottom:16px">Safe by construction</span>
-        <div class="flist">
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Isolated credentials</b> — every agent's access is sealed and scoped to only what it needs.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Network-level guardrails</b> — access is contained at the infrastructure level; it can't reach what it isn't allowed to.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Secure sandboxing</b> — it runs real code safely, isolated from everything else.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Scoped tool access</b> — connected to the tools your team already uses, bounded by the access you grant.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>One accountable identity</b> — a single teammate whose footprint is stitched across your tools and systems. Attributable, never anonymous.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Admin controls</b> — org-wide policy, access, and oversight in one place.</span></div>
+
+      <!-- Safe by construction -->
+      <div class="cap-band" style="--accent:#34d399">
+        <div class="cap-lead" style="background:linear-gradient(135deg,#22b47f,#0f9d63)">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-3Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+          <div><div class="bt">Safe by construction</div><div class="bd">Autonomy you can trust, because the limits are enforced — not politely requested.</div></div>
         </div>
+        <div class="cap-tile feat"><div class="tt"><span class="dot"></span>Network-level guardrails</div><div class="dd">Access is contained at the infrastructure level — it can't reach what it isn't allowed to.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Isolated credentials</div><div class="dd">Every agent's access is sealed and scoped to only what it needs.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Secure sandboxing</div><div class="dd">Runs real code safely, isolated from everything else.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Scoped tool access</div><div class="dd">Bounded by the access you grant.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>One accountable identity</div><div class="dd">A single teammate, attributable across your systems — never anonymous.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Admin controls</div><div class="dd">Org-wide policy, access, and oversight in one place.</div></div>
       </div>
-      <div>
-        <span class="eyebrow" style="display:block;margin-bottom:16px">Smarter &amp; more efficient</span>
-        <div class="flist">
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Long-term memory</b> — context compounds across every task, so it needs less hand-holding over time.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Continuous evaluation</b> — every result is independently graded before it counts.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Efficient by design</b> — it manages its own context to keep every run lean.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Smart notifications</b> — you hear what matters and stay clear of the noise.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Rich usage insight</b> — clear visibility into what it's doing, delivering, and costing.</span></div>
-          <div class="fi"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Advisory</b> — it flags risks and recommends next steps. A teammate that thinks, not just executes.</span></div>
+
+      <!-- Smarter & more efficient -->
+      <div class="cap-band" style="--accent:#5b8dff">
+        <div class="cap-lead" style="background:linear-gradient(135deg,#5b8dff,#3f6fd6)">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="2.4" stroke="#fff" stroke-width="1.7"/></svg></div>
+          <div><div class="bt">Smarter &amp; more efficient</div><div class="bd">It compounds: more useful, better judged, and leaner every week.</div></div>
         </div>
+        <div class="cap-tile feat"><div class="tt"><span class="dot"></span>Continuous evaluation</div><div class="dd">Every result is independently graded before it counts — the engine that turns output into trust.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Long-term memory</div><div class="dd">Context compounds across every task; less hand-holding over time.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Efficient by design</div><div class="dd">Manages its own context to keep every run lean.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Smart notifications</div><div class="dd">You hear what matters and stay clear of the noise.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Rich usage insight</div><div class="dd">Clear visibility into what it's doing, delivering, and costing.</div></div>
+        <div class="cap-tile"><div class="tt"><span class="dot"></span>Advisory</div><div class="dd">Flags risks and recommends next steps — thinks, not just executes.</div></div>
       </div>
     </div>
   </div>
